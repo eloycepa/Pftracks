@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.post('/tracks',            trackController.addTrack);
 
-router.get('/tracks/:name'        trackController.findTrackByName)
+router.get('/tracks/:name',        trackController.findTrackByName)
 router.post('/tracks/:name',      trackController.deleteTrackByName);
 
 module.exports = router;	

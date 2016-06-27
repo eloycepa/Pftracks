@@ -31,25 +31,28 @@ exports.addTrack = function(req, res){
 
             if (contador == 0){
             	var stringData = data.toString();
-
+                console.log(stringData);
             	stringData = stringData.substr(stringData.indexOf('filename')+13);
                 
             	stringData = stringData.substr(0,stringData.indexOf('.')+4);
     
             	filename = stringData;
-
+                console.log(filename);
             	var random = Math.floor((Math.random() * 100) + 1);
 
                 console.log("FILENAME: "+filename);
                 if (fileName == ""){
                     filename = ".mp3";
                 }
-
+                console.log("filename :"+filename);
+                //urlNAS = "../mnt/nas/"
             	tempName = new Date().getTime()+random+'_'+filename;
             	mp3File = urlNAS + tempName;
 
+                console.log('Hasta aqui funciona');
             	mp3_file = fs.createWriteStream(mp3File);
             	mp3_file.write(data);
+                console.log('==========================================');
             	contador++;
             }else{
             	mp3_file.write(data);

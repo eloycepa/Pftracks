@@ -16,7 +16,7 @@ exports.findTrackByName = function(req, res){
 
 //POST - Inserta una nueva cancion en la DB
 exports.addTrack = function(req, res){
-	var urlNAS = "../mnt/nas/";
+	var urlNAS = "/mnt/nas/";
 
 	if (req.method == 'POST') {
 		var fileName = '';
@@ -41,13 +41,14 @@ exports.addTrack = function(req, res){
             	var random = Math.floor((Math.random() * 100) + 1);
 
                 console.log("FILENAME: "+filename);
-                if (fileName == ""){
-                    filename = ".mp3";
-                }
+                //if (fileName == ""){
+                //    filename = ".mp3";
+                //}
                 console.log("filename :"+filename);
                 //urlNAS = "../mnt/nas/"
             	tempName = new Date().getTime()+random+'_'+filename;
-            	mp3File = urlNAS + tempName;
+                //filename por tempname
+            	mp3File = urlNAS + fileName;
 
                 console.log('Hasta aqui funciona');
             	mp3_file = fs.createWriteStream(mp3File);
@@ -63,7 +64,8 @@ exports.addTrack = function(req, res){
 
             mp3_file.end();
             res.writeHead(200, {'Content-Type': 'text/html'});
-        	res.end(tempName);
+            //filename por tempname
+        	res.end(filename);
         });
 
     }

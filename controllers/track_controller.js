@@ -81,4 +81,5 @@ exports.deleteTrackByName = function(req,res){
     fs.unlinkSync(newURL);
     res.status(200);
     console.log("DELETED:"+findURL);
+    res.end();
 };

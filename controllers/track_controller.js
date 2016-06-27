@@ -18,7 +18,7 @@ exports.findTrackByName = function(req, res){
 
 //POST - Inserta una nueva cancion en la DB
 exports.addTrack = function(req, res){
-    var urlNAS = "../mnt/nas/";
+    var urlNAS = "/mnt/nas/";
 
     if (req.method == 'POST') {
         var fileName = '';

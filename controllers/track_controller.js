@@ -12,7 +12,8 @@ exports.findTrackByName = function(req, res){
     var newURL = urlNAS+findURL;
 
     //mando la cancion que se encuentra en esa ruta:
-    res.sendFile(findURL,{root: '../mnt/nas'});
+    //res.sendFile(findURL,{root: '../mnt/nas'});
+    res.sendFile('/mnt/nas/'+findURL);
 };
 
 
